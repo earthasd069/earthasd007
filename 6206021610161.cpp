@@ -1,47 +1,37 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<time.h>
 using namespace std;
-int main ()
+void checkNum(int,int);
+int m = 0;
+int main()
 {
-	string Username,Username1;
-	int Password,Password1;
-	char menu;
+	srand(time(0));
+	int num = rand()%10;
+	int c;
+	cout<<"### Welcome to guessing number game ###"<<endl;
+	cout<<"Secret number has been chosen"<<endl;
 	do{
-		cout<<"///////////menu///////////"<<endl;
-		cout<<"1.Register"<<endl;
-		cout<<"2.Login"<<endl;
-		cout<<"Q.Exit Program"<<endl;
-		cout<<"Enter menu"<<endl;
-		cin >> menu;
-		if(menu=='1')
+	cout<<"Guess the number (1 to 10): ";
+	cin>>c;
+	checkNum(c,num);
+	m=m+1;
+	}while(c!=num);
+	
+	cout<<"The secret number is "<< num <<endl;
+	cout<<"You made "<< m <<" guesses "<<endl;
+	return (0);
+	 
+}
+void checkNum(int a,int b)
+{
+		if(a==b)
 		{
-			cout<<"*******Register*******"<<endl;
-			cout<<"input Username : " ;
-			cin >> Username;
-			cout<<"input Password : " ;
-			cin >> Password;
-
-		}else if (menu=='2')
-		{
-			cout<<"*******Login*******"<<endl;
-			cout<<"input Username : ";
-			cin >> Username1;
-			cout<<"input Password : ";
-			cin >> Password1;
-			if(Username1!=Username && Password1!=Password)
-			{
-				do
-				{
-					cout<<"!!!!Username or Password incorrect Please try again!!!!"<<endl;
-					cout<<"input Username : ";
-					cin >>Username1;
-					cout<<"input Password :";
-					cin >> Password1;
-
-				}while(Username1!=Username || Password!=Password);
-				cout<<"Username of Password correct ^_^"<<endl;
-
-			}else  cout<<"Username of Password correct ^_^"<<endl;
+			cout<<"Congratulations!."<<endl;
 		}
-	}while(menu!='Q');
+		else if(a > b)
+		{
+			cout<<"The secret number is higher"<<endl;
+		}
+		else
+			cout<<"The secret number is lower"<<endl;
 }
