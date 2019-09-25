@@ -1,20 +1,56 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ส่งงานa", "ส่งงานa\ส่งงานa.vcxproj", "{CE0A5C74-468C-42E4-BC45-46252520DFA0}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CE0A5C74-468C-42E4-BC45-46252520DFA0}.Debug|Win32.ActiveCfg = Debug|Win32
-		{CE0A5C74-468C-42E4-BC45-46252520DFA0}.Debug|Win32.Build.0 = Debug|Win32
-		{CE0A5C74-468C-42E4-BC45-46252520DFA0}.Release|Win32.ActiveCfg = Release|Win32
-		{CE0A5C74-468C-42E4-BC45-46252520DFA0}.Release|Win32.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+#/0include<iostream>
+#include<iomanip>
+#include<time.h>
+using namespace std;
+void display(int num[][6]);
+void graph(int num[][6]);
+int main()
+{
+	int num[5][6];
+	srand(time(0));
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<6;j++)
+		{
+			num[i][j] = rand()%10;
+		}
+	}
+	display(num);
+	cout<<endl;
+	graph(num);
+	return (0);
+}
+void display(int num[][6])
+{
+	for(int i=0;i<5;i++)
+	{
+		for(int j=0;j<6;j++)
+		{
+			cout<<num[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+
+}
+void graph(int num[][6])
+{
+	cout<<"================Display graph============================"<<endl;
+	cout<<"\t0\t1\t2\t3\t4\t5"<<endl;
+	cout<<"========================================================="<<endl;
+	for(int i=0;i<5;i++)
+	{
+		cout<<i<<"|";
+		for(int j=0;j<6;j++)
+		{
+			if(num[i][j] != 0)
+			{
+				cout<<"\t"<<"*";
+			}
+			else
+			{
+				cout<<"\t"<<"  ";
+			}
+		}
+		cout<<endl;
+	}
+}
